@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Giriş Yap</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #FFA500; 
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF6600;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #e65c00;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .message.success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>Giriş Yap</h2>
+
+    <form th:action="@{/login}" method="post">
+        <label for="username">Tckn :</label>
+        <input type="text" id="username" name="username" required/>
+
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required/>
+
+        <button type="submit">Giriş</button>
+    </form>
+
+    <!-- Hatalı giriş mesajı -->
+    <div th:if="${param.error}" class="message">❌ Kullanıcı adı veya şifre hatalı!</div>
+    <!-- Başarılı çıkış mesajı -->
+    <div th:if="${param.logout}" class="message success">✅ Başarıyla çıkış yaptınız.</div>
+</div>
+</body>
+</html>
