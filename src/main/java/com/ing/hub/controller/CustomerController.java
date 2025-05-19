@@ -113,7 +113,7 @@ public class CustomerController {
 		    return walletService.makeWithdraw(withdrawDto);
 	   }catch (Exception e) {
 			ApiResponse<Void> errorResponse = new ApiResponse<>(false,
-					"Beklenmeyen bir hata oluştu, lütfen bilgileri kontrol edin", null);
+					"Beklenmeyen bir hata oluştu, lütfen bilgileri kontrol edin.", null);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
 		}
 	        
