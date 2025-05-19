@@ -32,12 +32,13 @@ public class DataInitializer {
                 roleRepo.save(customerRole);
 
                 User admin = new User();
-                admin.setUsername("admin");
-                admin.setPassword(encoder.encode("admin123"));
+                admin.setUsername("12345678910");
+                admin.setName("ali");
+                admin.setSurName("sakalli");
+                admin.setTckn("12345678910");
+                admin.setPassword(encoder.encode("1234"));
                 admin.setRole(adminRole);
                 userRepo.save(admin);
-
-                System.out.println("Varsayılan admin eklendi: admin / admin123");
             }
         };
     }
